@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="col-sm-12">
+        <h3 class='text-warning my-3 border-bottom'>Update Your Post</h3>
+                {% if messages %}
+                    {% for message in messages %}
+                       <h4 class=' text-center my-3'>{{message}}</h4>
+                    {% endfor%}
+                {% endif %}
+           
+        <form action="" method="post" >
+            {% csrf_token %}
+            {{form.as_p}}
+
+            <input type='submit' value="Update" class='btn btn-success mt-3'>
+            <a href="{% url 'dashboard' %}" class='btn btn-danger mt-3'>Cancel</a>
+                 
+    </form>
+    </div>
+{% endblock content %}
+
